@@ -45,38 +45,64 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        esc {
+            bindings = <&kp ESCAPE>;
+            key-positions = <0 1>;
+        };
+
+        mb1 {
+            bindings = <&mkp MB1>;
+            key-positions = <16 17>;
+        };
+
+        mb2 {
+            bindings = <&mkp MB2>;
+            key-positions = <17 18>;
+        };
+
+        mb3 {
+            bindings = <&mkp MB3>;
+            key-positions = <17 16 18>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "Default Layer";
             bindings = <
-&kp Q         &kp W   &kp E      &kp R           &kp T                                      &kp Y        &kp U           &kp I      &kp O    &kp P
-&kp A         &kp S   &kp D      &kp F           &kp G                                      &kp H        &kp J           &kp K      &kp L    &kp MINUS
-&kp Z         &kp X   &kp C      &kp V           &kp B                                      &kp N        &kp M           &kp COMMA  &kp DOT  &kp SLASH
-&lt 4 DELETE  &tog 1  &lt 1 TAB  &kp LS(LG(N4))  &lt 2 SPACE  &lt 3 ESC    &lt 3 BACKSPACE  &lt 2 ENTER  &kp LS(LG(N4))  &kp F7     &kp F10  &lt 4 F12
+&kp Q                 &kp W     &kp E       &kp R    &kp T                                           &kp Y             &kp U  &kp I      &kp O    &kp P
+&kp A                 &kp S     &kp D       &kp F    &kp G                                           &kp H             &kp J  &kp K      &kp L    &kp MINUS
+&kp Z                 &kp X     &kp C       &kp V    &kp B                                           &kp N             &kp M  &kp COMMA  &kp DOT  &kp SLASH
+&mt LCTRL LANGUAGE_2  &kp LGUI  &kp LSHIFT  &kp TAB  &lt 2 SPACE  &lt 1 LEFT_ALT    &lt 1 BACKSPACE  &mt LSHIFT ENTER  &none  &kp F7     &mo 4    &kp LANGUAGE_1
             >;
 
             sensor-bindings = <&encoder_msc SCRL_DOWN SCRL_UP>;
         };
 
         layer_1 {
-            display-name = "Mouse Layer";
+            display-name = "Number Layer";
             bindings = <
-&trans    &trans  &trans  &trans  &trans                    &kp SPACE     &kp RG(LEFT)  &kp RG(RIGHT)  &mkp MB3      &trans
-&mkp MB5  &trans  &trans  &trans  &trans                    &kp LG(UP)    &mkp MB1      &mkp MB2       &msc SCRL_UP  &msc SCRL_DOWN
-&mkp MB4  &trans  &trans  &trans  &trans                    &kp LG(DOWN)  &kp LEFT      &kp UP         &kp RIGHT     &trans
-&trans    &trans  &trans  &trans  &trans  &trans    &trans  &trans        &trans        &kp DOWN       &trans        &kp LG(W)
+&kp PIPE         &kp NON_US_BACKSLASH  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp DOUBLE_QUOTES                     &kp GRAVE     &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp EQUAL
+&kp LSHIFT       &kp SQT               &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp TILDE                             &kp COMMA     &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp MINUS
+&kp EXCLAMATION  &kp QUESTION          &kp SEMICOLON         &kp COLON              &kp UNDERSCORE                        &kp PERIOD    &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
+&trans           &trans                &trans                &trans                 &trans             &trans    &kp DEL  &kp NUMBER_0  &trans        &trans        &trans        &trans
             >;
+
+            sensor-bindings = <&encoder_msc SCRL_RIGHT SCRL_LEFT>;
         };
 
         layer_2 {
-            display-name = "Number Layer";
+            display-name = "tertiary_layer";
             bindings = <
-&trans        &kp NUMBER_7       &kp NUMBER_8         &kp NUMBER_9       &kp EQUAL                          &kp F1     &kp F2    &kp F7           &kp F10      &kp RSHIFT
-&kp ASTERISK  &mt LALT NUMBER_4  &mt LSHIFT NUMBER_5  &mt LGUI NUMBER_6  &mt LCTRL MINUS                    &mkp MB1   &kp LEFT  &kp UP           &kp RIGHT    &kp RGUI
-&kp SLASH     &kp NUMBER_1       &kp NUMBER_2         &kp NUMBER_3       &kp PLUS                           &mkp MB2   &none     &kp DOWN         &none        &kp RALT
-&trans        &kp DOT            &kp NUMBER_0         &trans             &kp LANG2        &trans    &trans  &kp LANG1  &trans    &kp RS(RC(TAB))  &kp RC(TAB)  &kp F12
+&kp F12         &kp F7  &kp F8  &kp F9      &kp EQUAL                            &kp LS(LG(S))    &kp HOME  &kp UP_ARROW    &kp END    &trans
+&mt LSHIFT F11  &kp F4  &kp F5  &kp F6      &kp LG(LEFT)                         &trans           &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &trans
+&kp F10         &kp F1  &kp F2  &kp F3      &kp LG(RIGHT)                        &kp LG(TAB)      &none     &trans          &none      &trans
+&trans          &trans  &trans  &kp C_MUTE  &trans         &trans    &kp DELETE  &mt LSHFT ENTER  &trans    &trans          &trans     &trans
             >;
 
             sensor-bindings = <&encoder_kp C_VOL_UP C_VOL_DN>;
