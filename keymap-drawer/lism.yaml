@@ -34,13 +34,13 @@ layers:
   - {t: LANGUAGE 2, h: LCTRL}
   - LGUI
   - LSHIFT
-  - TAB
+  - LALT
   - {t: SPACE, h: tertiary_layer}
-  - {t: LEFT ALT, h: Number Layer}
+  - {t: TAB, h: Number Layer}
   - {t: BS, h: Number Layer}
   - {t: ENTER, h: LSHIFT}
   - ''
-  - F7
+  - '&mkp MB1'
   - Device Layer
   - LANGUAGE 1
   Number Layer:
