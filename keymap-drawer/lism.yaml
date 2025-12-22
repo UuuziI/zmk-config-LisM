@@ -31,18 +31,18 @@ layers:
   - ','
   - .
   - /
-  - {t: LANGUAGE 2, h: LCTRL}
+  - {t: TAB, h: LCTRL}
   - LGUI
-  - LSHIFT
+  - {t: LANGUAGE 2, h: LSHIFT}
   - LALT
   - {t: SPACE, h: tertiary_layer}
-  - {t: TAB, h: Number Layer}
+  - {t: LANGUAGE 1, h: Number Layer}
   - {t: BS, h: Number Layer}
   - {t: ENTER, h: LSHIFT}
   - ''
   - '&mkp MB1'
   - Device Layer
-  - LANGUAGE 1
+  - LEFT ALT
   Number Layer:
   - '|'
   - NON US BACKSLASH
