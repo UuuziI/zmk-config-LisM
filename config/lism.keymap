@@ -99,7 +99,7 @@
         layer_2 {
             display-name = "tertiary_layer";
             bindings = <
-&kp F12         &kp F7  &kp F8  &kp F9      &kp EQUAL                            &kp LS(LG(S))    &kp HOME  &kp UP_ARROW    &kp END    &trans
+&kp F12         &kp F7  &kp F8  &kp F9      &kp LA(F4)                           &kp LS(LG(S))    &kp HOME  &kp UP_ARROW    &kp END    &trans
 &mt LSHIFT F11  &kp F4  &kp F5  &kp F6      &kp LG(LEFT)                         &trans           &kp LEFT  &kp DOWN_ARROW  &kp RIGHT  &trans
 &kp F10         &kp F1  &kp F2  &kp F3      &kp LG(RIGHT)                        &kp LG(TAB)      &none     &trans          &none      &trans
 &trans          &trans  &trans  &kp C_MUTE  &trans         &trans    &kp DELETE  &mt LSHFT ENTER  &trans    &trans          &trans     &trans
