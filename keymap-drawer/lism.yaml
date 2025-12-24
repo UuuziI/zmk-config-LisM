@@ -91,7 +91,7 @@ layers:
   - F7
   - F8
   - F9
-  - '='
+  - Alt+F4
   - Sft+Gui+S
   - HOME
   - UP ARROW
