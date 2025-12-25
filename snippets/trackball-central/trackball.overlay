@@ -22,13 +22,6 @@
 
     scroller {
         layers = <2>;
-
-        /* 横のみ反転、縦はそのまま */
-        scroll-x-multiplier = <(-1)>;
-        scroll-y-multiplier = <1>;
-
-        /* 感度（大きいほど遅くなる） */
-        divisor = <16>;
     };
 };
 };
