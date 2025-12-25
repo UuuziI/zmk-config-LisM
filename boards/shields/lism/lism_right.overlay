@@ -1,31 +1,41 @@
 #include "lism.dtsi"
 
+/ {
+    /* レイヤー2の時だけ有効なスクロール listener */
+    scroll_listener_layer2: scroll_listener_layer2 {
+        compatible = "zmk,input-listener";
+
+        /* 右手トラックボール */
+        device = <&trackball_right>;
+
+        /* layer_2 がアクティブな時だけ有効 */
+        layers = <2>;
+
+        /* ポインタ → スクロール変換 */
+        transform = <&scroll_transform_layer2>;
+    };
+
+    /* スクロール変換設定 */
+    scroll_transform_layer2: scroll_transform_layer2 {
+        compatible = "zmk,pointing-transform";
+
+        /* 縦スクロール */
+        scroll-y;
+        scroll-y-scale = <200>;
+
+        /* 横スクロール（反転） */
+        scroll-x;
+        scroll-x-scale = <-200>;
+
+        /* 斜め入力を無視（しきい値） */
+        deadzone = <20>;
+    };
+};
+
 &transform_42keymap {
     col-offset = <5>;
 };
 
 &transform_40keymap {
     col-offset = <5>;
-};
-
-/ {
-    /* 右手トラックボール：レイヤー2用スクロール */
-    scroll_listener_right: scroll_listener_right {
-        compatible = "zmk,input-listener";
-        status = "disabled";          /* keymap側でON */
-        device = <&trackball_split>;
-
-        input-processors =
-            /* スクロールのみ左右反転 */
-            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
-
-            /* 斜め入力を無視（縦横に吸着） */
-            <&zip_xy_snapper 20>,
-
-            /* XY → スクロール変換 */
-            <&zip_xy_to_scroll_mapper>,
-
-            /* スクロール速度 */
-            <&zip_scroll_scaler 1 8>;
-    };
 };
