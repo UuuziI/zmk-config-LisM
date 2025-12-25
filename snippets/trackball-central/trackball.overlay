@@ -19,14 +19,16 @@
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
-    input-processors = 
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
-scroller {
-    layers = <2>;
+    scroller {
+        layers = <2>;
 
-    input-processors =
-        <&zip_xy_to_scroll_mapper>,
-        <&zip_scroll_scaler (-1) (1) 16>;
+        /* 横のみ反転、縦はそのまま */
+        scroll-x-multiplier = <(-1)>;
+        scroll-y-multiplier = <1>;
+
+        /* 感度（大きいほど遅くなる） */
+        divisor = <16>;
+    };
 };
 };
