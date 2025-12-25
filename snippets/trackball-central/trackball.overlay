@@ -18,7 +18,7 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /* ポインタ操作は一切いじらない */
+    /* ポインタ操作はデフォルトのまま */
 
     scroller {
         /* レイヤー2でのみスクロール */
@@ -28,10 +28,11 @@
             /* XY → スクロール */
             <&zip_xy_to_scroll_mapper>,
 
-            /* 上下のみ反転（X=1, Y=-1） */
-            <&zip_scroll_scaler 1 (-1)>,
-
-            /* 縦横ともに感度を落とす */
-            <&zip_scroll_divider 3 3>;
+            /*
+             * スクロール調整
+             * X: 0.5倍（横を弱める）
+             * Y: -0.5倍（上下反転 + 感度低下）
+             */
+            <&zip_scroll_scaler (1/2) (-1/2)>;
     };
 };
