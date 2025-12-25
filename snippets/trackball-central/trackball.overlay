@@ -18,23 +18,21 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /* ===== ポインタ用 =====
-     * 上下左右が逆 → 両方反転
+    /* ===== ポインタ =====
+     * センサ座標が逆なので X/Y 両方反転
      */
     input-processors =
-        <&zip_xy_scaler (-1) (-1)>;
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
-    /* ===== スクロール用 =====
-     * layer 2 の間だけ有効
-     * 左右：そのまま
-     * 上下：反転
-     * 感度：少し落とす
+    /* ===== スクロール =====
+     * layer 2 の間だけ
+     * 上下だけ反転
      */
     scroller {
         layers = <2>;
 
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler (1) (-1)>;
+            <&zip_xy_transform INPUT_TRANSFORM_Y_INVERT>;
     };
 };
