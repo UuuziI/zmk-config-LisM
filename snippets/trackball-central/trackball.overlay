@@ -18,16 +18,17 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /* ==== ポインタ操作 ==== */
-    /* 上下左右の反転をここで修正 */
+    /* ===== ポインタ（通常時） ===== */
+    /* 上下左右を元に戻す */
     input-processors =
-        <&zip_pointer_scaler (-1) (-1)>;
+        <&zip_xy_transform 0>;
 
-    /* ==== スクロール ==== */
+    /* ===== スクロール ===== */
     scroller {
+        /* keymap 側で &mkp SCRL を押している間だけ有効 */
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            /* 縦を反転 + 縦横とも感度を下げる */
-            <&zip_scroll_scaler (1/2) (-1/2)>;
+            /* 横そのまま、縦だけ反転 + 感度を落とす */
+            <&zip_scroll_scaler 1 -3>;
     };
 };
