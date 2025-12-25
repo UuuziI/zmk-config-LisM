@@ -18,17 +18,19 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /* ← ここでは何も反転しない */
-    /* input-processors を置かないのがポイント */
+    /* ポインタ移動の補正（X/Y 両方反転） */
+    input-processors =
+        <&zip_xy_scaler (-1) (-1)>;
 
     scroller {
         layers = <2>;
 
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            /* 横だけ反転、縦はそのまま */
-            <&zip_scroll_scaler (-1) (1)>;
+            /* スクロールも X/Y 両方反転 */
+            <&zip_scroll_scaler (-1) (-1)>;
     };
 };
+
 
 };
