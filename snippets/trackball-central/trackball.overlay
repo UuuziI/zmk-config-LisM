@@ -10,17 +10,18 @@
     };
 };
 
-&peripheral_listener {
+&central_listener {
     status = "okay";
-};
+    device = <&trackball_central>;
 
-scroller {
-    layers = <2>;
+    scroller {
+        layers = <2>;
 
-    input-processors =
-        /* XY → スクロール変換 */
-        <&zip_xy_to_scroll_mapper>,
+        /* 横のみ反転、縦はそのまま */
+        scroll-x-multiplier = <(-1)>;
+        scroll-y-multiplier = <1>;
 
-        /* 横スクロールのみ反転 + 速度調整 */
-        <&zip_scroll_scaler (-1) 16>;
+        /* 感度（大きいほど遅くなる） */
+        divisor = <16>;
+    };
 };
