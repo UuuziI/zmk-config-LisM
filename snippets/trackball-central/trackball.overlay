@@ -14,16 +14,21 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /*
-     * ポインタは一切いじらない
-     * → 反転・暴走の原因を完全排除
+    /* ===== ポインタ用補正 =====
+     * 上下左右が逆 → 両方反転
      */
+    input-processors =
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
     scroller {
         layers = <2>;
 
+        /* ===== スクロール用補正 =====
+         * 左右は OK
+         * 上下だけ逆 → Y を反転
+         */
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler (-1) (1)>;
+            <&zip_scroll_scaler 1 (-1)>;
     };
 };
