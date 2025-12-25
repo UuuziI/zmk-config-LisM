@@ -1,34 +1,42 @@
 &spi0 {
     status = "okay";
 
-    trackball_central: trackball@0 {
+    trackball_central: trackball@1 {
+        status = "okay";
         compatible = "pixart,paw3222";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&xiao_d 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        status = "okay";
     };
+};
+
+&peripheral_listener {
+    status = "okay";
 };
 
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
 
-    /* ===== ポインタ用補正 =====
-     * 上下左右が逆 → 両方反転
-     */
-    input-processors =
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-
+    /* ポインタ操作（完成形：反転なし） */
+    /* ここはもう触らない */
+    
     scroller {
+        /* レイヤー2のときだけスクロール */
         layers = <2>;
 
-        /* ===== スクロール用補正 =====
-         * 左右は OK
-         * 上下だけ逆 → Y を反転
-         */
         input-processors =
+            /* XY → スクロール変換 */
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 1 (-1)>;
+
+            /* 小さい入力・斜め入力をカット（誤爆防止） */
+            /* 数値を上げるほど厳しくなる */
+            <&zip_xy_deadzone 20 20>,
+
+            /* スクロール感度調整
+             * X:  0.5  → 横スクロール減速
+             * Y: -0.5  → 縦スクロール減速＋反転
+             */
+            <&zip_scroll_scaler 0.5 (-0.5)>;
     };
 };
