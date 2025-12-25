@@ -22,17 +22,14 @@
     input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
-    scroller {
+scroller {
     layers = <2>;
 
     input-processors =
-        /* XY をスクロールに変換 */
+        /* XY → スクロール変換 */
         <&zip_xy_to_scroll_mapper>,
 
-        /* 横スクロール反転 + 速度調整 */
-        <&zip_scroll_scaler (-1) 16>,
-
-        /* 斜め入力を抑制（axis lock） */
-        <&zip_axis_lock 20>;
+        /* 横スクロールのみ反転 + 速度調整 */
+        <&zip_scroll_scaler (-1) 16>;
 };
 };
