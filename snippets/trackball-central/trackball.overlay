@@ -10,15 +10,23 @@
     };
 };
 
+&peripheral_listener {
+    status = "okay";
+};
+
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
+
+    /* ← ここでは何も反転しない */
+    /* input-processors を置かないのがポイント */
 
     scroller {
         layers = <2>;
 
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler (-1) 1 16>;
+            /* 横だけ反転、縦はそのまま */
+            <&zip_scroll_scaler (-1) (1)>;
     };
 };
