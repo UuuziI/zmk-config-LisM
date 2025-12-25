@@ -1,7 +1,5 @@
 #include "lism.dtsi"
 
-/ {
-
 &transform_42keymap {
     col-offset = <5>;
 };
