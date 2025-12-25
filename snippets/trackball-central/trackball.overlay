@@ -30,6 +30,6 @@ scroller {
         <&zip_xy_to_scroll_mapper>,
 
         /* 横スクロールのみ反転 + 速度調整 */
-        <&zip_scroll_scaler (-1) 16>;
+        <&zip_scroll_scaler (-1) 20>;
 };
 };
