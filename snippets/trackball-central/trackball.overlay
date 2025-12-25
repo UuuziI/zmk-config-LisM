@@ -1,7 +1,7 @@
 &spi0 {
     status = "okay";
 
-    trackball_central: trackball@0 {
+    trackball_central: trackball@1 {
         status = "okay";
         compatible = "pixart,paw3222";
         reg = <0>;
@@ -10,17 +10,18 @@
     };
 };
 
+&peripheral_listener {
+    status = "okay";
+};
+
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
 
     scroller {
         layers = <2>;
-
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_scaler (-1) (1)>;
     };
-};
-
 };
