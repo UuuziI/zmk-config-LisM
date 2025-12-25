@@ -1,31 +1,6 @@
 #include "lism.dtsi"
 
 / {
-    scroll_listener_layer2: scroll_listener_layer2 {
-        compatible = "zmk,input-listener";
-
-        /* 右手トラックボール */
-        device = <&trackball_right>;
-
-        /* layer_2 の時だけ有効 */
-        layers = <2>;
-
-        transform = <&scroll_transform_layer2>;
-    };
-
-    scroll_transform_layer2: scroll_transform_layer2 {
-        compatible = "zmk,pointing-transform";
-
-        /* 縦スクロール */
-        scroll-y = <200>;
-
-        /* 横スクロール（反転）※ 負の値は () 必須 */
-        scroll-x = <(-150)>;
-
-        /* 斜め入力を無視 */
-        axis-lock-threshold = <20>;
-    };
-};
 
 &transform_42keymap {
     col-offset = <5>;
