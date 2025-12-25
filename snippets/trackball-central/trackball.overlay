@@ -18,15 +18,11 @@
     status = "okay";
     device = <&trackball_central>;
 
-    /* ← ここでは何も反転しない */
-    /* input-processors を置かないのがポイント */
-
     scroller {
         layers = <2>;
-
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            /* 横だけ反転、縦はそのまま */
-            <&zip_scroll_scaler (-1) (1)>;
+            /* 縦方向だけ反転（上下を正しく） */
+            <&zip_scroll_scaler (1) (-1)>;
     };
 };
