@@ -39,7 +39,7 @@ layers:
   - {t: LANGUAGE 1, h: Number Layer}
   - {t: BS, h: Number Layer}
   - {t: ENTER, h: LSHIFT}
-  - C
+  - D
   - '&mkp MB1'
   - Device Layer
   - LEFT ALT
