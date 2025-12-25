@@ -7,3 +7,25 @@
 &transform_40keymap {
     col-offset = <5>;
 };
+
+/ {
+    /* 右手トラックボール：レイヤー2用スクロール */
+    scroll_listener_right: scroll_listener_right {
+        compatible = "zmk,input-listener";
+        status = "disabled";          /* keymap側でON */
+        device = <&trackball_split>;
+
+        input-processors =
+            /* スクロールのみ左右反転 */
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
+
+            /* 斜め入力を無視（縦横に吸着） */
+            <&zip_xy_snapper 20>,
+
+            /* XY → スクロール変換 */
+            <&zip_xy_to_scroll_mapper>,
+
+            /* スクロール速度 */
+            <&zip_scroll_scaler 1 8>;
+    };
+};
