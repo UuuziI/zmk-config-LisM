@@ -14,7 +14,17 @@
     status = "okay";
     device = <&trackball_central>;
 
+    &central_listener {
+    status = "okay";
+    device = <&trackball_central>;
+
     scroller {
         layers = <2>;
+
+        input-processors =
+            <&zip_xy_to_scroll_mapper>,
+            <&zip_scroll_scaler (-1) (1) 16>;
     };
+};
+
 };
