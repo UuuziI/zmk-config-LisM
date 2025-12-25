@@ -27,7 +27,6 @@ scroller {
 
     input-processors =
         <&zip_xy_to_scroll_mapper>,
-        /* X = -1（反転）, Y = +1（そのまま） */
-        <&zip_scroll_scaler -1 1 25>;
+        <&zip_scroll_scaler (-1) (1) 16>;
 };
 };
