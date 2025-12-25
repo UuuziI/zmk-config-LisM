@@ -33,6 +33,6 @@
         <&zip_scroll_scaler (-1) 16>,
 
         /* 斜め入力を抑制（axis lock） */
-        <&zip_axis_lock 15>;
+        <&zip_axis_lock 20>;
 };
 };
