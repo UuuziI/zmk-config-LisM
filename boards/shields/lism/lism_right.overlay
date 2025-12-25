@@ -1,34 +1,32 @@
 #include "lism.dtsi"
 
 / {
-    /* レイヤー2の時だけ有効なスクロール listener */
     scroll_listener_layer2: scroll_listener_layer2 {
         compatible = "zmk,input-listener";
 
         /* 右手トラックボール */
         device = <&trackball_right>;
 
-        /* layer_2 がアクティブな時だけ有効 */
+        /* layer_2 の時だけ有効 */
         layers = <2>;
 
-        /* ポインタ → スクロール変換 */
         transform = <&scroll_transform_layer2>;
     };
 
-    /* スクロール変換設定 */
     scroll_transform_layer2: scroll_transform_layer2 {
         compatible = "zmk,pointing-transform";
 
         /* 縦スクロール */
-        scroll-y;
-        scroll-y-scale = <200>;
+        scroll-y = <200>;
 
         /* 横スクロール（反転） */
-        scroll-x;
-        scroll-x-scale = <-200>;
+        scroll-x = <-200>;
 
-        /* 斜め入力を無視（しきい値） */
-        deadzone = <20>;
+        /*
+         * 斜め入力を無視する設定
+         * 値が大きいほど「真横／真縦」以外を切る
+         */
+        axis-lock-threshold = <15>;
     };
 };
 
