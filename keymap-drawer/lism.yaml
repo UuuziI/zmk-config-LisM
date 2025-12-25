@@ -34,7 +34,7 @@ layers:
   - {t: TAB, h: LCTRL}
   - LGUI
   - {t: LANGUAGE 2, h: LSHIFT}
-  - LALT
+  - ESCAPE
   - {t: SPACE, h: tertiary_layer}
   - {t: LANGUAGE 1, h: Number Layer}
   - {t: BS, h: Number Layer}
