@@ -25,14 +25,12 @@
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
     /* ===== スクロール（layer 2 のみ） ===== */
-   scroller {
-    layers = <2>;
-    input-processors = <
-        &zip_xy_to_scroll_mapper,
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>
-    >;
-    scroll-multiplier = <50 50>;
-    deadzone = <5 5>;
-};
+    scroller {
+        layers = <2>;
 
+        input-processors =
+            <&zip_xy_to_scroll_mapper>,
+            /* mapper が反転した X を元に戻し、Y だけ反転 */
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+    };
 };
