@@ -10,27 +10,22 @@
     };
 };
 
+// ペリフェラル（split経由）のリスナーを有効化
 &peripheral_listener {
     status = "okay";
 };
 
+// セントラルのリスナーを有効化し、deviceを紐付け
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
-
-    /* ===== ポインタ =====
-     * センサ座標が逆なので X/Y 両方反転
-     */
-    input-processors =
+    input-processors = 
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
-    /* ===== スクロール（layer 2 のみ） ===== */
     scroller {
         layers = <2>;
-
-        input-processors =
+        input-processors = 
             <&zip_xy_to_scroll_mapper>,
-            /* mapper が反転した X を元に戻し、Y だけ反転 */
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+            <&zip_scroll_scaler 1 16>;
     };
 };
