@@ -20,12 +20,12 @@
     status = "okay";
     device = <&trackball_central>;
     input-processors = 
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT) 4>; // デッドゾーン追加
+        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
     scroller {
         layers = <2>;
         input-processors = 
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 2 32>; // スクロールを少し遅くして斜め誤爆を減らす
+            <&zip_scroll_scaler 2 32>; // スクロール感度を下げる
     };
 };
