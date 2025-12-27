@@ -19,13 +19,17 @@
 &central_listener {
     status = "okay";
     device = <&trackball_central>;
-    input-processors = 
+
+    // ポインタ用（上下左右が正しい状態）
+    input-processors =
         <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
 
     scroller {
         layers = <2>;
-        input-processors = 
+        input-processors =
+            // ★ 横スクロールだけ再反転
+            <&zip_xy_transform INPUT_TRANSFORM_X_INVERT>,
             <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_scaler 2 32>; // スクロール感度を下げる
+            <&zip_scroll_scaler 2 32>;
     };
 };
