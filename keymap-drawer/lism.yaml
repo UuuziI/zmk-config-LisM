@@ -42,7 +42,7 @@ layers:
   - ''
   - Device Layer
   - LANGUAGE 1
-  - LANGUAGE 2
+  - {t: LANGUAGE 2, h: tertiary_layer}
   Number Layer:
   - '|'
   - NON US BACKSLASH
