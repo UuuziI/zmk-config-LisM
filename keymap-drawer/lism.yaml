@@ -31,18 +31,18 @@ layers:
   - ','
   - .
   - /
-  - {t: TAB, h: LCTRL}
+  - LCTRL
   - LGUI
-  - {t: LANGUAGE 2, h: LSHIFT}
-  - ESCAPE
+  - LEFT ALT
+  - LSHIFT
   - {t: SPACE, h: tertiary_layer}
-  - {t: LANGUAGE 1, h: Number Layer}
+  - {t: TAB, h: Number Layer}
   - {t: BS, h: Number Layer}
   - {t: ENTER, h: LSHIFT}
-  - G
-  - '&mkp MB1'
+  - ''
   - Device Layer
-  - LEFT ALT
+  - LANGUAGE 1
+  - LANGUAGE 2
   Number Layer:
   - '|'
   - NON US BACKSLASH
@@ -212,8 +212,8 @@ layers:
   - '&studio_unlock'
   - ''
   - ''
-  - ''
   - {type: held}
+  - ''
   - Boot
 combos:
 - p: [0, 1]
