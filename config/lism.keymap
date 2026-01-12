@@ -67,6 +67,11 @@
             bindings = <&mkp MB3>;
             key-positions = <17 16 18>;
         };
+
+        mouse {
+            bindings = <&tog 5>;
+            key-positions = <5 6 7>;
+        };
     };
 
     keymap {
@@ -132,10 +137,10 @@
             status = "reserved";
             display-name = "Brank Layer";
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                           &none      &mkp MB1  &mkp MB1  &mkp MB3  &mkp MB2
+&trans  &trans  &trans  &trans  &trans                           &none      &mkp MB1  &mkp MB3  &mkp MB2  &mo 2
+&trans  &trans  &trans  &trans  &trans                           &none      &none     &none     &none     &mo 2
+&trans  &trans  &trans  &trans  &trans  &trans    &kp BACKSPACE  &kp ENTER  &none     &none     &none     &mo 2
             >;
         };
 
