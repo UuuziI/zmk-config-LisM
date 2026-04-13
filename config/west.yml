@@ -15,12 +15,12 @@ manifest:
       import: app/west.yml
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
-      revision: main
+      revision: 9c2b9a1
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main
+      revision: 6d2f0c7
     - name: zmk-feature-charge-indicator
       remote: 4mplelab
-      revision: main
+      revision: 3a1f8d2
   self:
     path: config
