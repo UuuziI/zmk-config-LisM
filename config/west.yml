@@ -11,16 +11,16 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.2.0
+      revision: v0.3.0
       import: app/west.yml
     - name: zmk-driver-paw3222
       remote: sekigon-gonnoc
-      revision: 9c2b9a1
+      revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: 6d2f0c7
+      revision: v0.3
     - name: zmk-feature-charge-indicator
       remote: 4mplelab
-      revision: 3a1f8d2
+      revision: main
   self:
     path: config
