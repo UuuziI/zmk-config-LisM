@@ -218,15 +218,15 @@ layers:
 combos:
 - p: [0, 1]
   k: ESCAPE
-- p: [16, 17]
+- p: [6, 7]
   k: '&mkp MB1'
-- p: [17, 18]
+- p: [7, 8]
   k: '&mkp MB2'
-- p: [17, 16, 18]
+- p: [6, 7, 8]
   k: '&mkp MB3'
 - p: [5, 6, 7]
   k: {t: Mark Layer, h: toggle}
-- p: [13, 14]
+- p: [13, 12]
   k: LANG1
-- p: [15, 16]
+- p: [16, 17]
   k: LANG2
