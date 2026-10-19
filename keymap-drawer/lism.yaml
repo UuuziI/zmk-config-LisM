@@ -1,7 +1,7 @@
 layout: {zmk_keyboard: lism}
 layers:
   Default Layer:
-  - {t: Q, h: LEFT ALT}
+  - Q
   - W
   - E
   - R
@@ -10,8 +10,8 @@ layers:
   - U
   - I
   - O
-  - {t: P, h: LEFT ALT}
-  - {t: A, h: LEFT SHIFT}
+  - P
+  - A
   - S
   - D
   - F
@@ -20,8 +20,8 @@ layers:
   - J
   - K
   - L
-  - {t: '-', h: LSHIFT}
-  - {t: Z, h: LEFT CONTROL}
+  - '-'
+  - Z
   - X
   - C
   - V
@@ -30,7 +30,7 @@ layers:
   - M
   - ','
   - .
-  - {t: /, h: LEFT CONTROL}
+  - /
   - LCTRL
   - LGUI
   - LEFT ALT
@@ -41,8 +41,8 @@ layers:
   - {t: ENTER, h: LSHIFT}
   - ''
   - Device Layer
-  - LANGUAGE 1
-  - {t: LANGUAGE 2, h: tertiary_layer}
+  - LSHFT
+  - tertiary_layer
   Number Layer:
   - '|'
   - NON US BACKSLASH
