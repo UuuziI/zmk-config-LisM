@@ -41,7 +41,7 @@ layers:
   - {t: ENTER, h: LSHIFT}
   - ''
   - Device Layer
-  - LSHFT
+  - Device Layer
   - tertiary_layer
   Number Layer:
   - '|'
