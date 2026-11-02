@@ -37,7 +37,7 @@ layers:
   - MUTE
   - {t: SPACE, h: tertiary_layer}
   - {t: TAB, h: Number Layer}
-  - {t: BS, h: Number Layer}
+  - {t: BS, h: LEFT CONTROL}
   - {t: ENTER, h: LSHIFT}
   - ''
   - Device Layer
