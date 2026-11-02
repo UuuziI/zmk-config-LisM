@@ -124,7 +124,7 @@ layers:
   - {type: held}
   - {t: ▽, type: trans}
   - DEL
-  - {t: ENTER, h: LSHFT}
+  - {t: Sft+ENTER, h: (LSHFT)}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
